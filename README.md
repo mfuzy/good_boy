@@ -50,7 +50,7 @@ Vizuálna kvalita spracovania aplikácie a štýlovanie je tiež predmetom hodno
 - Naklonujte si tento repozitár k sebe
 - Umiestnite ho do verejného github / bitbucket repozitáru a svoju prácu priebežne commitujte
 - Do repozitáru udeľte prístup kontu [roman.haluska@goodrequest.com](mailto:roman.haluska@goodrequest.com) (v prípade súkromného repo na bitbucket) alebo pošlite link na verejné github repo na tento e-mail
-- Ozvite sa [veronika.stefanatna@goodrequest.com](mailto:veronika.stefanatna@goodrequest.com) a [roman.haluska@goodrequest.com](mailto:roman.haluska@goodrequest.com) keď je zadanie za vás pripravené na review
+- Ozvite sa [andrea.eckerova@goodrequest.com](mailto:andrea.eckerova@goodrequest.com) a [roman.haluska@goodrequest.com](mailto:roman.haluska@goodrequest.com) keď je zadanie za vás pripravené na review
 
 Commit messages a spôsob commitovania budú tiež predmetom hodnotenia
 
@@ -110,7 +110,7 @@ The visual quality of the application and styling is also part of the evaluation
 - Clone this repository to you
 - Place it in a public GitHub / Bitbucket repository and commit your work regularly
 - Grant access to the account [roman.haluska@goodrequest.com](mailto:roman.haluska@goodrequest.com) (for private repos on Bitbucket) or send the link to your public GitHub repo to this email
-- Contact [veronika.stefanatna@goodrequest.com](mailto:veronika.stefanatna@goodrequest.com) and [roman.haluska@goodrequest.com](mailto:roman.haluska@goodrequest.com) when your assignment is ready for review
+- Contact [andrea.eckerova@goodrequest.com](mailto:andrea.eckerova@goodrequest.com) and [roman.haluska@goodrequest.com](mailto:roman.haluska@goodrequest.com) when your assignment is ready for review
 
 Commit messages and the way of commmiting will also be evaluated.
 
