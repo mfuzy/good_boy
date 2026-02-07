@@ -2,12 +2,12 @@ import { Grid, Stack, Button } from "@mui/material";
 
 export default function Contact() {
   return (
-    <Grid container spacing={1} direction={"column"} px={1} py={1}>
+    <div>
       {/* ---------------ROW A ----------------------------------------------------------- */}
-      <Grid>KONTAKT</Grid>
+      <div>KONTAKT</div>
 
       {/*----------------ROW B---------------------------------------------------------------- */}
-      <Grid></Grid>
-    </Grid>
+      <div></div>
+    </div>
   );
 }

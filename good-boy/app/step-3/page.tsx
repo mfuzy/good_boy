@@ -3,14 +3,14 @@ import { Grid, Stack, Button } from "@mui/material";
 
 export default function Step3() {
   return (
-    <Grid container spacing={1} direction={"column"} px={1} py={1}>
+    <div>
       {/* ---------------ROW A ----------------------------------------------------------- */}
-      <Grid>
+      <div>
         <TopStepper activeStep={2} />
-      </Grid>
+      </div>
 
       {/*----------------ROW B---------------------------------------------------------------- */}
-      <Grid></Grid>
-    </Grid>
+      <div></div>
+    </div>
   );
 }

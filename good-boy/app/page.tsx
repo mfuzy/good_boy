@@ -1,16 +1,20 @@
+import ToggleBtns from "@/components/toggleButtons";
 import TopStepper from "@/components/topStepper";
+
 import { Grid, Stack, Button } from "@mui/material";
 
 export default function Home() {
   return (
-    <Grid container spacing={1} direction={"column"} px={1} py={1}>
-      {/* ---------------ROW A ----------------------------------------------------------- */}
-      <Grid>
+    <>
+      <div>
         <TopStepper activeStep={0} />
-      </Grid>
+      </div>
 
-      {/*----------------ROW B---------------------------------------------------------------- */}
-      <Grid></Grid>
-    </Grid>
+      <h1>Vyberte si možnosť, ako chcete pomôcť</h1>
+
+      <div>
+        <ToggleBtns />
+      </div>
+    </>
   );
 }
