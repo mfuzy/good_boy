@@ -6,7 +6,7 @@ import { DonationType } from "@/types/donationTypes";
 import { ToggleButton, ToggleButtonGroup } from "@mui/material";
 import React from "react";
 
-export default function ToggleBtns() {
+export default function ToggleButtons() {
   const option = useDonationStore((state) => state.donationOption);
   const setOption = useDonationStore((state) => state.setDonationOption);
   return (

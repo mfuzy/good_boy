@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
+import TanstackProvider from "./tanstack-provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,7 +35,8 @@ export default function RootLayout({
           <Link href="/contact">Kontakt</Link>
           <Link href="/about">About</Link>
         </div>
-        {children}
+
+        <TanstackProvider>{children}</TanstackProvider>
       </body>
     </html>
   );
