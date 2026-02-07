@@ -1,5 +1,5 @@
 import { DONATION_AMOUNTS } from "@/constants/donation";
-import { DonationType } from "@/types/donation";
+import { DonationType, ShelterDto } from "@/types/donation";
 import { create } from "zustand";
 
 type DonationState = {
@@ -12,26 +12,26 @@ type DonationState = {
   selectedDonationValue: number;
   setSelectedDonationValue: (value: number) => void;
 
-  dogShelters: any;
-  setDogShelters: (value: any) => void;
+  dogShelters: ShelterDto[];
+  setDogShelters: (value: ShelterDto[]) => void;
 
-  selectedDogShelter: any;
-  setSelectedDogShelter: (value: any) => void;
+  selectedDogShelterId: number | null;
+  setSelectedDogShelterId: (value: number | null) => void;
 };
 
-export const useUserStore = create<DonationState>((set) => ({
+export const useDonationStore = create<DonationState>((set) => ({
   donationOption: DonationType.Foundation,
   setDonationOption: (value) => set({ donationOption: value }),
 
   donationValue: "",
   setDonationValue: (value: string) => set({ donationValue: value }),
 
-  selectedDonationValue: DONATION_AMOUNTS[4],
+  selectedDonationValue: 50,
   setSelectedDonationValue: (value: number) => set({ selectedDonationValue: value }),
 
   dogShelters: [],
   setDogShelters: (value: any) => set({ dogShelters: value }),
 
-  selectedDogShelter: "",
-  setSelectedDogShelter: (value: any) => set({ selectedDogShelter: value }),
+  selectedDogShelterId: null,
+  setSelectedDogShelterId: (value: any) => set({ selectedDogShelterId: value }),
 }));
