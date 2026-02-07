@@ -1,5 +1,9 @@
+import DonationInput from "@/components/donationInput";
+import DonationValues from "@/components/toggleAmounts";
+import Shelters from "@/components/shelters";
 import ToggleButtons from "@/components/toggleButtons";
 import TopStepper from "@/components/topStepper";
+import ToggleAmounts from "@/components/toggleAmounts";
 
 export default function Home() {
   return (
@@ -16,7 +20,13 @@ export default function Home() {
 
       <div>O projekte</div>
 
-      <div>Útulok</div>
+      <div>Útulok (Nepovinné)</div>
+      <Shelters />
+
+      <div>Suma, ktorou chcem prispieť</div>
+      <DonationInput />
+
+      <ToggleAmounts />
     </>
   );
 }

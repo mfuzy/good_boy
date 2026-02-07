@@ -29,8 +29,8 @@ export const useDonationStore = create<DonationState>((set) => ({
   setSelectedDonationValue: (value: number) => set({ selectedDonationValue: value }),
 
   dogShelters: [],
-  setDogShelters: (value: any) => set({ dogShelters: value }),
+  setDogShelters: (value: ShelterDto[]) => set({ dogShelters: value }),
 
   selectedDogShelterId: null,
-  setSelectedDogShelterId: (value: any) => set({ selectedDogShelterId: value }),
+  setSelectedDogShelterId: (value: number | null) => set({ selectedDogShelterId: value }),
 }));

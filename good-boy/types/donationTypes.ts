@@ -3,6 +3,10 @@ export enum DonationType {
   DogShelter = "dog_shelter",
 }
 
+export type SheltersRespDto = {
+  shelters: ShelterDto[];
+};
+
 export type ShelterDto = {
   id: number;
   name: string;
