@@ -19,9 +19,9 @@ export type ContributeReqDto = {
   value: number;
 };
 
-export interface Contributor {
+export type Contributor = {
   firstName: string;
   lastName: string;
   email: string;
   phone: string;
-}
+};
