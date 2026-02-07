@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-type UserState = {
+type DonorState = {
   name: string;
   surname: string;
   email: string;
@@ -16,7 +16,7 @@ type UserState = {
   toggleChecked: () => void;
 };
 
-export const useUserStore = create<UserState>((set) => ({
+export const useUserStore = create<DonorState>((set) => ({
   name: "",
   surname: "",
   email: "",
