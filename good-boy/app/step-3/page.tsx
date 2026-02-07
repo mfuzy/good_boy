@@ -1,3 +1,3 @@
 export default function About() {
-  return <div>O projekte</div>;
+  return <div>Krok 3</div>;
 }
