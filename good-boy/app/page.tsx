@@ -1,9 +1,13 @@
+import { Grid, Stack, Button } from "@mui/material";
+
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        Krok 1
-      </main>
-    </div>
+    <Grid container spacing={1} direction={"column"} px={1} py={1}>
+      {/* ---------------ROW A ----------------------------------------------------------- */}
+      <Grid>STEP 1</Grid>
+
+      {/*----------------ROW B---------------------------------------------------------------- */}
+      <Grid></Grid>
+    </Grid>
   );
 }

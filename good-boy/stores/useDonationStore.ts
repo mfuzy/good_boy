@@ -1,5 +1,4 @@
-import { DONATION_AMOUNTS } from "@/constants/donation";
-import { DonationType, ShelterDto } from "@/types/donation";
+import { DonationType, ShelterDto } from "@/types/donationTypes";
 import { create } from "zustand";
 
 type DonationState = {
