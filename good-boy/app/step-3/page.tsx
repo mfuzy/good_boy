@@ -1,3 +1,4 @@
+import Test from "@/components/test";
 import TopStepper from "@/components/topStepper";
 
 export default function Step3() {
@@ -9,7 +10,9 @@ export default function Step3() {
       </div>
 
       {/*----------------ROW B---------------------------------------------------------------- */}
-      <div></div>
+      <div>
+        <Test />
+      </div>
     </div>
   );
 }

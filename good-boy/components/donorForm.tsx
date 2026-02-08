@@ -16,7 +16,7 @@ const schema = z.object({
   name: z.string().min(2, "Minimálne 2 znaky").max(20, "Maximálne 20 znakov").optional(),
   surname: z.string().min(2, "Minimálne 2 znaky").max(30, "Maximálne 30 znakov"),
   email: z.email("Neplatný email"),
-  phoneNumber: z.string(),
+  phoneNumber: z.string().regex(/^\d{9}$/, "Telefónne číslo musí mať 9 číslic"),
 });
 
 type FormFields = z.infer<typeof schema>;
@@ -46,7 +46,7 @@ export default function DonorForm() {
     console.log(data);
 
     //save data to store
-    setName(data.name);
+    setName(data.name ? data.name : "");
     setSurname(data.surname);
     setEmail(data.email);
     setPhoneNumber(data.phoneNumber);
@@ -70,6 +70,7 @@ export default function DonorForm() {
         <TextField
           label="meno"
           variant="filled"
+          size="small"
           sx={{
             width: "200px",
           }}
@@ -79,6 +80,7 @@ export default function DonorForm() {
         <TextField
           label="priezvisko"
           variant="filled"
+          size="small"
           sx={{
             width: "200px",
           }}
@@ -91,6 +93,7 @@ export default function DonorForm() {
         <TextField
           label="E-mailová adresa"
           variant="filled"
+          size="small"
           sx={{
             width: "200px",
           }}
@@ -103,6 +106,7 @@ export default function DonorForm() {
         <Select
           labelId="prefix-label"
           label=""
+          size="small"
           value={selectedPhonePrefixId}
           onChange={handlePrefixChange}
           displayEmpty
@@ -117,6 +121,7 @@ export default function DonorForm() {
         <TextField
           label=""
           variant="filled"
+          size="small"
           sx={{
             width: "200px",
           }}
