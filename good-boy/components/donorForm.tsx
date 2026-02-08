@@ -13,10 +13,10 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 const schema = z.object({
-  name: z.string(),
-  surname: z.string(),
+  name: z.string().min(2, "Minimálne 2 znaky").max(20, "Maximálne 20 znakov").optional(),
+  surname: z.string().min(2, "Minimálne 2 znaky").max(30, "Maximálne 30 znakov"),
   email: z.email("Neplatný email"),
-  phoneNumber: z.string().min(3),
+  phoneNumber: z.string(),
 });
 
 type FormFields = z.infer<typeof schema>;
