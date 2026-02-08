@@ -1,12 +1,23 @@
 "use client";
 
-import { TextField, FormControl, InputLabel, Select, MenuItem, FormHelperText } from "@mui/material";
+import { Button, TextField, FormControl, InputLabel, Select, MenuItem, FormHelperText } from "@mui/material";
 import InputAdornment from "@mui/material/InputAdornment";
 import { useDonationStore } from "@/stores/useDonationStore";
+import { useForm, SubmitHandler } from "react-hook-form";
+
+type IFormInput = {
+  name: string;
+  surname: string;
+  email: string;
+  phoneNumber: string;
+};
 
 export default function DonorForm() {
   const donationValue = useDonationStore((state) => state.donationValue);
   const setDonationValue = useDonationStore((state) => state.setDonationValue);
+
+  const { register, handleSubmit } = useForm<IFormInput>();
+  const onSubmit: SubmitHandler<IFormInput> = (data) => console.log(data);
 
   return (
     <div>
@@ -18,11 +29,7 @@ export default function DonorForm() {
           sx={{
             width: "200px",
           }}
-          onChange={(e) => {
-            const val = e.target.value;
-
-            //setDonationValue(val);
-          }}
+          {...register("name")}
         />
 
         <TextField
@@ -32,11 +39,7 @@ export default function DonorForm() {
           sx={{
             width: "200px",
           }}
-          onChange={(e) => {
-            const val = e.target.value;
-
-            //setDonationValue(val);
-          }}
+          {...register("surname")}
         />
       </div>
 
@@ -48,11 +51,7 @@ export default function DonorForm() {
           sx={{
             width: "200px",
           }}
-          onChange={(e) => {
-            const val = e.target.value;
-
-            //setDonationValue(val);
-          }}
+          {...register("email")}
         />
       </div>
 
@@ -79,12 +78,12 @@ export default function DonorForm() {
           sx={{
             width: "200px",
           }}
-          onChange={(e) => {
-            const val = e.target.value;
-
-            //setDonationValue(val);
-          }}
+          {...register("phoneNumber")}
         />
+
+        <Button onClick={handleSubmit(onSubmit)} variant="contained">
+          klik
+        </Button>
       </div>
     </div>
   );
