@@ -28,19 +28,12 @@ export default function Shelters() {
   };
 
   return (
-    <FormControl>
-      <InputLabel id="shelter-label">Útulok</InputLabel>
-      <Select
-        labelId="shelter-label"
-        label="Útulok"
-        value={selectedDogShelterId ?? ""}
-        onChange={handleChange}
-        displayEmpty
-      >
-        <MenuItem value="">
-          <em>Vyberte útulok zo zoznamu</em>
+    <FormControl variant="filled" fullWidth>
+      <InputLabel id="select-filled-label">Vyberte útulok zo zoznamu</InputLabel>
+      <Select labelId="select-filled-label" value={selectedDogShelterId ?? ""} onChange={handleChange}>
+        <MenuItem value="" disabled>
+          Vyberte útulok zo zoznamu
         </MenuItem>
-
         {shelters.map((s) => (
           <MenuItem key={s.id} value={String(s.id)}>
             {s.name}

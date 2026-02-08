@@ -1,7 +1,6 @@
 "use client";
 
 import { Button, Stack } from "@mui/material";
-import { useDonationStore } from "@/stores/useDonationStore";
 import ToggleButtons from "./toggleButtons";
 import Shelters from "./shelters";
 import DonationInput from "./donationInput";
@@ -9,30 +8,39 @@ import ToggleAmounts from "./toggleAmounts";
 import { useRouter } from "next/navigation";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import styles from "./donationForm.module.css";
 
 export default function DonationForm() {
   const router = useRouter();
-  const donationValue = useDonationStore((state) => state.donationValue);
-  const setDonationValue = useDonationStore((state) => state.setDonationValue);
 
   return (
-    <div>
-      <h1>Vyberte si možnosť, ako chcete pomôcť</h1>
+    <div className={styles.donation_container}>
+      <div className={styles.big_title}>Vyberte si možnosť, ako chcete pomôcť</div>
 
-      <div>
+      <div className={styles.options}>
         <ToggleButtons />
       </div>
 
-      <div>O projekte</div>
+      <div className={styles.shelters}>
+        <p style={{ fontWeight: "bold" }}>O projekte</p>
 
-      <div>Útulok (Nepovinné)</div>
+        <p style={{ marginTop: "5px" }}>
+          <strong>Útulok</strong> <span>(Nepovinné)</span>
+        </p>
+        <Shelters />
+      </div>
 
-      <Shelters />
+      <div className={styles.donation}>
+        <p style={{ fontWeight: "bold" }}>Suma, ktorou chcem prispieť</p>
 
-      <div>Suma, ktorou chcem prispieť</div>
-      <DonationInput />
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <DonationInput />
+        </div>
 
-      <ToggleAmounts />
+        <div style={{ marginTop: "40px" }}>
+          <ToggleAmounts />
+        </div>
+      </div>
 
       <Stack direction="row" justifyContent="space-between" width="100%">
         <Button

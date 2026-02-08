@@ -14,8 +14,8 @@ export default function DonationInput() {
       variant="standard"
       inputMode="numeric"
       sx={{
-        width: "80px",
-        "& .MuiInputBase-input": { fontSize: 28, textAlign: "right" },
+        width: "65px",
+        "& .MuiInputBase-input": { fontSize: 28, textAlign: "center", color: "#9CA3AF" },
       }}
       onChange={(e) => {
         const val = e.target.value;

@@ -19,9 +19,13 @@ export default function ToggleButtons() {
         }}
         size="small"
       >
-        <ToggleButton value={DonationType.DogShelter}>Prispieť konkrétnemu útulku</ToggleButton>
+        <ToggleButton color="primary" value={DonationType.DogShelter} sx={{ width: "324px" }}>
+          Prispieť konkrétnemu útulku
+        </ToggleButton>
 
-        <ToggleButton value={DonationType.Foundation}>Prispieť celej nadácii</ToggleButton>
+        <ToggleButton value={DonationType.Foundation} sx={{ width: "324px" }}>
+          Prispieť celej nadácii
+        </ToggleButton>
       </ToggleButtonGroup>
     </div>
   );

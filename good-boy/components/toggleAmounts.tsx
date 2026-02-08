@@ -2,7 +2,6 @@
 
 import { DONATION_AMOUNTS } from "@/constants/donationConstants";
 import { useDonationStore } from "@/stores/useDonationStore";
-import { DonationType } from "@/types/donationTypes";
 
 import { ToggleButton, ToggleButtonGroup } from "@mui/material";
 
@@ -19,9 +18,23 @@ export default function ToggleAmounts() {
           if (newValue !== null) setSelectedDonationValue(newValue);
         }}
         size="small"
+        sx={{
+          gap: 1.5,
+        }}
       >
         {DONATION_AMOUNTS.map((i: number) => (
-          <ToggleButton value={i}>{i} €</ToggleButton>
+          <ToggleButton
+            value={i}
+            sx={{
+              minWidth: 98,
+              px: 2,
+              "&:not(.Mui-selected)": {
+                backgroundColor: "#f5f5f5",
+              },
+            }}
+          >
+            {i} €
+          </ToggleButton>
         ))}
       </ToggleButtonGroup>
     </div>

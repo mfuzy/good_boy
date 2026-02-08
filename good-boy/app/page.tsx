@@ -1,6 +1,7 @@
 import Image from "next/image";
 import TopStepper from "@/components/topStepper";
 import DonationForm from "@/components/donationForm";
+import Footer from "./footer";
 
 export default function Home() {
   return (
@@ -9,6 +10,8 @@ export default function Home() {
         <TopStepper activeStep={0} />
 
         <DonationForm />
+
+        <Footer />
       </main>
 
       <aside className="sidebar">
@@ -16,7 +19,7 @@ export default function Home() {
           src="/Dog1.png"
           alt="Pes"
           width={600}
-          height={400}
+          height={980}
           priority
           style={{
             height: "100%",

@@ -12,6 +12,8 @@ import { useRouter } from "next/navigation";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
+import styles from "./donorForm.module.css";
+
 const schema = z.object({
   name: z.string().min(2, "Minimálne 2 znaky").max(20, "Maximálne 20 znakov").optional(),
   surname: z.string().min(2, "Minimálne 2 znaky").max(30, "Maximálne 30 znakov"),
@@ -35,7 +37,7 @@ export default function DonorForm() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormFields>({ defaultValues: { email: "abc@gmail.com" }, resolver: zodResolver(schema) });
+  } = useForm<FormFields>({ resolver: zodResolver(schema) });
 
   const handlePrefixChange = (e: SelectChangeEvent<number | "">) => {
     const val = Number(e.target.value);
@@ -65,14 +67,19 @@ export default function DonorForm() {
   };
 
   return (
-    <div>
-      <div>
+    <div className={styles.donor_container}>
+      <div className={styles.big_title}>Potrebujeme od Vás zopár informácií</div>
+
+      <p style={{ fontWeight: "bold", marginTop: "20px" }}>O vás</p>
+
+      <div style={{ marginTop: "20px" }}>
         <TextField
           label="meno"
           variant="filled"
           size="small"
           sx={{
-            width: "200px",
+            width: "320px",
+            marginRight: "10px",
           }}
           {...register("name")}
         />
@@ -82,27 +89,28 @@ export default function DonorForm() {
           variant="filled"
           size="small"
           sx={{
-            width: "200px",
+            width: "320px",
           }}
           {...register("surname")}
         />
         {errors.surname && <Alert severity="error">{errors.surname.message}</Alert>}
       </div>
 
-      <div>
+      <div style={{ marginTop: "20px" }}>
         <TextField
+          fullWidth
           label="E-mailová adresa"
           variant="filled"
           size="small"
           sx={{
-            width: "200px",
+            width: "650",
           }}
           {...register("email")}
         />
         {errors.email && <Alert severity="error">{errors.email.message}</Alert>}
       </div>
 
-      <div>
+      <div style={{ marginTop: "20px", marginBottom: "40px" }}>
         <Select
           labelId="prefix-label"
           label=""
@@ -110,6 +118,7 @@ export default function DonorForm() {
           value={selectedPhonePrefixId}
           onChange={handlePrefixChange}
           displayEmpty
+          sx={{ height: "50px" }}
         >
           {PHONE_PREFIXES.map((i) => (
             <MenuItem key={i.id} value={i.id}>
@@ -122,9 +131,7 @@ export default function DonorForm() {
           label=""
           variant="filled"
           size="small"
-          sx={{
-            width: "200px",
-          }}
+          sx={{ marginLeft: "12px", width: "570px" }}
           {...register("phoneNumber")}
           slotProps={{
             input: {
@@ -133,31 +140,31 @@ export default function DonorForm() {
           }}
         />
         {errors.phoneNumber && <Alert severity="error">{errors.phoneNumber.message}</Alert>}
-
-        <Stack direction="row" justifyContent="space-between" width="100%">
-          <Button
-            size="small"
-            variant="outlined"
-            startIcon={<ArrowBackIcon />}
-            sx={{ textTransform: "none" }}
-            onClick={() => {
-              //redirect
-              router.push("/");
-            }}
-          >
-            Späť
-          </Button>
-          <Button
-            size="small"
-            variant="contained"
-            endIcon={<ArrowForwardIcon />}
-            sx={{ textTransform: "none" }}
-            onClick={handleSubmit(onSubmit)}
-          >
-            Pokračovať
-          </Button>
-        </Stack>
       </div>
+
+      <Stack direction="row" justifyContent="space-between" width="100%">
+        <Button
+          size="small"
+          variant="outlined"
+          startIcon={<ArrowBackIcon />}
+          sx={{ textTransform: "none" }}
+          onClick={() => {
+            //redirect
+            router.push("/");
+          }}
+        >
+          Späť
+        </Button>
+        <Button
+          size="small"
+          variant="contained"
+          endIcon={<ArrowForwardIcon />}
+          sx={{ textTransform: "none" }}
+          onClick={handleSubmit(onSubmit)}
+        >
+          Pokračovať
+        </Button>
+      </Stack>
     </div>
   );
 }
