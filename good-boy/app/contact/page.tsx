@@ -1,5 +1,3 @@
-import { Grid, Stack, Button } from "@mui/material";
-
 export default function Contact() {
   return (
     <div>

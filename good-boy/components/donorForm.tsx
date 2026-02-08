@@ -1,6 +1,6 @@
 "use client";
 
-import { Button, TextField, FormControl, InputLabel, Select, MenuItem, FormHelperText } from "@mui/material";
+import { Button, TextField, Stack, FormControl, InputLabel, Select, MenuItem, FormHelperText } from "@mui/material";
 import InputAdornment from "@mui/material/InputAdornment";
 import { z } from "zod";
 import { useDonorFormStore } from "@/stores/useDonorFormStore";
@@ -8,6 +8,9 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { PHONE_PREFIXES } from "@/constants/donorFormConstants";
 import type { SelectChangeEvent } from "@mui/material/Select";
+import { useRouter } from "next/navigation";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 const schema = z.object({
   name: z.string(),
@@ -19,8 +22,14 @@ const schema = z.object({
 type FormFields = z.infer<typeof schema>;
 
 export default function DonorForm() {
+  const router = useRouter();
   const selectedPhonePrefixId = useDonorFormStore((state) => state.selectedPhonePrefixId);
   const setSelectedPhonePrefixId = useDonorFormStore((state) => state.setSelectedPhonePrefixId);
+
+  const setName = useDonorFormStore((state) => state.setName);
+  const setSurname = useDonorFormStore((state) => state.setSurname);
+  const setEmail = useDonorFormStore((state) => state.setEmail);
+  const setPhoneNumber = useDonorFormStore((state) => state.setPhoneNumber);
 
   const {
     register,
@@ -33,7 +42,18 @@ export default function DonorForm() {
     setSelectedPhonePrefixId(val);
   };
 
-  const onSubmit: SubmitHandler<FormFields> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<FormFields> = (data) => {
+    console.log(data);
+
+    //save data to store
+    setName(data.name);
+    setSurname(data.surname);
+    setEmail(data.email);
+    setPhoneNumber(data.phoneNumber);
+
+    //redirect
+    router.push("/step-3");
+  };
 
   const getPhonePrefix = (): string => {
     for (let i of PHONE_PREFIXES) {
@@ -109,9 +129,29 @@ export default function DonorForm() {
         />
         {errors.phoneNumber && <div style={{ border: "2px solid red" }}>{errors.phoneNumber.message}</div>}
 
-        <Button onClick={handleSubmit(onSubmit)} variant="contained">
-          klik
-        </Button>
+        <Stack direction="row" justifyContent="space-between" width="100%">
+          <Button
+            size="small"
+            variant="outlined"
+            startIcon={<ArrowBackIcon />}
+            sx={{ textTransform: "none" }}
+            onClick={() => {
+              //redirect
+              router.push("/");
+            }}
+          >
+            Späť
+          </Button>
+          <Button
+            size="small"
+            variant="contained"
+            endIcon={<ArrowForwardIcon />}
+            sx={{ textTransform: "none" }}
+            onClick={handleSubmit(onSubmit)}
+          >
+            Pokračovať
+          </Button>
+        </Stack>
       </div>
     </div>
   );

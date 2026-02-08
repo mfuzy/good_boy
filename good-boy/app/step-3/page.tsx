@@ -1,5 +1,4 @@
 import TopStepper from "@/components/topStepper";
-import { Grid, Stack, Button } from "@mui/material";
 
 export default function Step3() {
   return (
