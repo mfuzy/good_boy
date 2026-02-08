@@ -5,7 +5,7 @@ import InputAdornment from "@mui/material/InputAdornment";
 import { z } from "zod";
 import { useDonationStore } from "@/stores/useDonationStore";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod/src/zod.js";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 const schema = z.object({
   name: z.string(),
@@ -23,8 +23,7 @@ export default function DonorForm() {
   const {
     register,
     handleSubmit,
-    setError,
-    formState: { errors, isSubmitting },
+    formState: { errors },
   } = useForm<FormFields>({ defaultValues: { email: "abc@gmail.com" }, resolver: zodResolver(schema) });
 
   const onSubmit: SubmitHandler<FormFields> = (data) => console.log(data);
@@ -40,7 +39,7 @@ export default function DonorForm() {
           }}
           {...register("name")}
         />
-
+        {errors.name && <div style={{ border: "2px solid red" }}>{errors.name.message}</div>}
         <TextField
           label="priezvisko"
           variant="filled"
@@ -49,6 +48,7 @@ export default function DonorForm() {
           }}
           {...register("surname")}
         />
+        {errors.surname && <div style={{ border: "2px solid red" }}>{errors.surname.message}</div>}
       </div>
 
       <div>
@@ -87,6 +87,7 @@ export default function DonorForm() {
           }}
           {...register("phoneNumber")}
         />
+        {errors.phoneNumber && <div style={{ border: "2px solid red" }}>{errors.phoneNumber.message}</div>}
 
         <Button onClick={handleSubmit(onSubmit)} variant="contained">
           klik
