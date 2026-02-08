@@ -2,29 +2,38 @@
 
 import { Button, TextField, FormControl, InputLabel, Select, MenuItem, FormHelperText } from "@mui/material";
 import InputAdornment from "@mui/material/InputAdornment";
+import { z } from "zod";
 import { useDonationStore } from "@/stores/useDonationStore";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod/src/zod.js";
 
-type IFormInput = {
-  name: string;
-  surname: string;
-  email: string;
-  phoneNumber: string;
-};
+const schema = z.object({
+  name: z.string(),
+  surname: z.string(),
+  email: z.email("Neplatný email"),
+  phoneNumber: z.string().min(3),
+});
+
+type FormFields = z.infer<typeof schema>;
 
 export default function DonorForm() {
   const donationValue = useDonationStore((state) => state.donationValue);
   const setDonationValue = useDonationStore((state) => state.setDonationValue);
 
-  const { register, handleSubmit } = useForm<IFormInput>();
-  const onSubmit: SubmitHandler<IFormInput> = (data) => console.log(data);
+  const {
+    register,
+    handleSubmit,
+    setError,
+    formState: { errors, isSubmitting },
+  } = useForm<FormFields>({ defaultValues: { email: "abc@gmail.com" }, resolver: zodResolver(schema) });
+
+  const onSubmit: SubmitHandler<FormFields> = (data) => console.log(data);
 
   return (
     <div>
       <div>
         <TextField
           label="meno"
-          value={""}
           variant="filled"
           sx={{
             width: "200px",
@@ -34,7 +43,6 @@ export default function DonorForm() {
 
         <TextField
           label="priezvisko"
-          value={""}
           variant="filled"
           sx={{
             width: "200px",
@@ -46,13 +54,13 @@ export default function DonorForm() {
       <div>
         <TextField
           label="E-mailová adresa"
-          value={""}
           variant="filled"
           sx={{
             width: "200px",
           }}
           {...register("email")}
         />
+        {errors.email && <div style={{ border: "2px solid red" }}>{errors.email.message}</div>}
       </div>
 
       <div>
@@ -73,7 +81,6 @@ export default function DonorForm() {
 
         <TextField
           label=""
-          value={""}
           variant="filled"
           sx={{
             width: "200px",
