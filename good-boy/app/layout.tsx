@@ -27,15 +27,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        {/* NavBar */}
-        <div style={{ marginBottom: "20px" }}>
-          <Link href="/">Krok 1</Link>
-          <Link href="/step-2">Krok 2</Link>
-          <Link href="/step-3">Krok 3</Link>
-          <Link href="/contact">Kontakt</Link>
-          <Link href="/about">About</Link>
-        </div>
-
         <TanstackProvider>{children}</TanstackProvider>
       </body>
     </html>

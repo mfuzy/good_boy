@@ -1,13 +1,13 @@
 import DonationInput from "@/components/donationInput";
-import DonationValues from "@/components/toggleAmounts";
 import Shelters from "@/components/shelters";
 import ToggleButtons from "@/components/toggleButtons";
 import TopStepper from "@/components/topStepper";
 import ToggleAmounts from "@/components/toggleAmounts";
+import FooterStepButtons from "@/components/footerStepButtons";
 
 export default function Home() {
   return (
-    <>
+    <div>
       <div>
         <TopStepper activeStep={0} />
       </div>
@@ -27,6 +27,8 @@ export default function Home() {
       <DonationInput />
 
       <ToggleAmounts />
-    </>
+
+      <FooterStepButtons prevRoute={null} nextRoute="/step-2" />
+    </div>
   );
 }
