@@ -9,7 +9,7 @@ export default function Test() {
 
   return (
     <div>
-      <h1>TEST</h1>
+      <h1>Test</h1>
       <div>meno: {name}</div>
       <div>selected donation value: {selectedDonationValue}</div>
     </div>

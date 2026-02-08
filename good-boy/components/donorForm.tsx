@@ -1,6 +1,6 @@
 "use client";
 
-import { Button, TextField, Stack, FormControl, InputLabel, Select, MenuItem, FormHelperText } from "@mui/material";
+import { Button, TextField, Stack, Alert, Select, MenuItem } from "@mui/material";
 import InputAdornment from "@mui/material/InputAdornment";
 import { z } from "zod";
 import { useDonorFormStore } from "@/stores/useDonorFormStore";
@@ -76,7 +76,7 @@ export default function DonorForm() {
           }}
           {...register("name")}
         />
-        {errors.name && <div style={{ border: "2px solid red" }}>{errors.name.message}</div>}
+        {errors.name && <Alert severity="warning">{errors.name.message}</Alert>}
         <TextField
           label="priezvisko"
           variant="filled"
@@ -86,7 +86,7 @@ export default function DonorForm() {
           }}
           {...register("surname")}
         />
-        {errors.surname && <div style={{ border: "2px solid red" }}>{errors.surname.message}</div>}
+        {errors.surname && <Alert severity="warning">{errors.surname.message}</Alert>}
       </div>
 
       <div>
@@ -99,7 +99,7 @@ export default function DonorForm() {
           }}
           {...register("email")}
         />
-        {errors.email && <div style={{ border: "2px solid red" }}>{errors.email.message}</div>}
+        {errors.email && <Alert severity="warning">{errors.email.message}</Alert>}
       </div>
 
       <div>
@@ -132,7 +132,7 @@ export default function DonorForm() {
             },
           }}
         />
-        {errors.phoneNumber && <div style={{ border: "2px solid red" }}>{errors.phoneNumber.message}</div>}
+        {errors.phoneNumber && <Alert severity="warning">{errors.phoneNumber.message}</Alert>}
 
         <Stack direction="row" justifyContent="space-between" width="100%">
           <Button
