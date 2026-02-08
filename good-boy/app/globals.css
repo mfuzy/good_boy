@@ -49,6 +49,21 @@ body {
 */
 
 .footer {
+  padding: 20px;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   background-color: yellow;
+}
+
+.footerLeft,
+.footerRight {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.footerRight a {
+  text-decoration: none;
+  color: inherit;
 }
