@@ -83,7 +83,7 @@ export default function DonorForm() {
           }}
           {...register("name")}
         />
-        {errors.name && <Alert severity="error">{errors.name.message}</Alert>}
+
         <TextField
           label="priezvisko"
           variant="filled"
@@ -93,8 +93,9 @@ export default function DonorForm() {
           }}
           {...register("surname")}
         />
-        {errors.surname && <Alert severity="error">{errors.surname.message}</Alert>}
       </div>
+      {errors.name && <Alert severity="error">{errors.name.message}</Alert>}
+      {errors.surname && <Alert severity="error">{errors.surname.message}</Alert>}
 
       <div style={{ marginTop: "20px" }}>
         <TextField
