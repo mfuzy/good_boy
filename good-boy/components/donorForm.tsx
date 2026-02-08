@@ -76,7 +76,7 @@ export default function DonorForm() {
           }}
           {...register("name")}
         />
-        {errors.name && <Alert severity="warning">{errors.name.message}</Alert>}
+        {errors.name && <Alert severity="error">{errors.name.message}</Alert>}
         <TextField
           label="priezvisko"
           variant="filled"
@@ -86,7 +86,7 @@ export default function DonorForm() {
           }}
           {...register("surname")}
         />
-        {errors.surname && <Alert severity="warning">{errors.surname.message}</Alert>}
+        {errors.surname && <Alert severity="error">{errors.surname.message}</Alert>}
       </div>
 
       <div>
@@ -99,7 +99,7 @@ export default function DonorForm() {
           }}
           {...register("email")}
         />
-        {errors.email && <Alert severity="warning">{errors.email.message}</Alert>}
+        {errors.email && <Alert severity="error">{errors.email.message}</Alert>}
       </div>
 
       <div>
@@ -132,7 +132,7 @@ export default function DonorForm() {
             },
           }}
         />
-        {errors.phoneNumber && <Alert severity="warning">{errors.phoneNumber.message}</Alert>}
+        {errors.phoneNumber && <Alert severity="error">{errors.phoneNumber.message}</Alert>}
 
         <Stack direction="row" justifyContent="space-between" width="100%">
           <Button
