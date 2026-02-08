@@ -7,7 +7,7 @@ export default function Step2() {
   return (
     <div className="wrapper">
       <main className="content">
-        <TopStepper activeStep={0} />
+        <TopStepper activeStep={1} />
 
         <DonorForm />
 
