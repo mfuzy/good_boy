@@ -18,7 +18,7 @@ type DonorState = {
   toggleChecked: () => void;
 };
 
-export const useUserStore = create<DonorState>((set) => ({
+export const useDonorFormStore = create<DonorState>((set) => ({
   name: "",
   surname: "",
   email: "",

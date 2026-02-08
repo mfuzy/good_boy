@@ -3,9 +3,11 @@
 import { Button, TextField, FormControl, InputLabel, Select, MenuItem, FormHelperText } from "@mui/material";
 import InputAdornment from "@mui/material/InputAdornment";
 import { z } from "zod";
-import { useDonationStore } from "@/stores/useDonationStore";
+import { useDonorFormStore } from "@/stores/useDonorFormStore";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { PHONE_PREFIXES } from "@/constants/donorFormConstants";
+import type { SelectChangeEvent } from "@mui/material/Select";
 
 const schema = z.object({
   name: z.string(),
@@ -17,8 +19,8 @@ const schema = z.object({
 type FormFields = z.infer<typeof schema>;
 
 export default function DonorForm() {
-  const donationValue = useDonationStore((state) => state.donationValue);
-  const setDonationValue = useDonationStore((state) => state.setDonationValue);
+  const selectedPhonePrefixId = useDonorFormStore((state) => state.selectedPhonePrefixId);
+  const setSelectedPhonePrefixId = useDonorFormStore((state) => state.setSelectedPhonePrefixId);
 
   const {
     register,
@@ -26,7 +28,21 @@ export default function DonorForm() {
     formState: { errors },
   } = useForm<FormFields>({ defaultValues: { email: "abc@gmail.com" }, resolver: zodResolver(schema) });
 
+  const handlePrefixChange = (e: SelectChangeEvent<number | "">) => {
+    const val = Number(e.target.value);
+    setSelectedPhonePrefixId(val);
+  };
+
   const onSubmit: SubmitHandler<FormFields> = (data) => console.log(data);
+
+  const getPhonePrefix = (): string => {
+    for (let i of PHONE_PREFIXES) {
+      if (selectedPhonePrefixId === i.id) {
+        return i.code;
+      }
+    }
+    return "";
+  };
 
   return (
     <div>
@@ -64,19 +80,18 @@ export default function DonorForm() {
       </div>
 
       <div>
-        <Select labelId="shelter-label" label="Útulok" value={""} onChange={() => {}} displayEmpty>
-          <MenuItem value="">
-            <em>Vyberte útulok zo zoznamu</em>
-          </MenuItem>
-          {/*
-        
-
-           {shelters.map((s) => (
-          <MenuItem key={s.id} value={String(s.id)}>
-            {s.name}
-          </MenuItem>
-        ))}
-        */}
+        <Select
+          labelId="prefix-label"
+          label=""
+          value={selectedPhonePrefixId}
+          onChange={handlePrefixChange}
+          displayEmpty
+        >
+          {PHONE_PREFIXES.map((i) => (
+            <MenuItem key={i.id} value={i.id}>
+              {i.flag}
+            </MenuItem>
+          ))}
         </Select>
 
         <TextField
@@ -86,6 +101,11 @@ export default function DonorForm() {
             width: "200px",
           }}
           {...register("phoneNumber")}
+          slotProps={{
+            input: {
+              startAdornment: <InputAdornment position="start">{getPhonePrefix()}</InputAdornment>,
+            },
+          }}
         />
         {errors.phoneNumber && <div style={{ border: "2px solid red" }}>{errors.phoneNumber.message}</div>}
 
