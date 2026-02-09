@@ -14,11 +14,11 @@ export default function AboutSection() {
 
       <div className={styles.middle_section}>
         <div className={styles.middle_section_block}>
-          <div className={styles.val}>56456465465464456465466</div>
-          <strong>Celková vyzbieraná hodnota</strong>{" "}
+          <div className={styles.val}>56456465465464456465466 €</div>
+          <strong>Celková vyzbieraná hodnota</strong>
         </div>
         <div className={styles.middle_section_block}>
-          <div className={styles.val}>7787468486484844448484</div>
+          <div className={styles.val}>7787468486484844448484 </div>
 
           <strong>Počet darcov</strong>
         </div>

@@ -1,9 +1,7 @@
-import Image from "next/image";
 import Footer from "../../components/server/footer";
 import { Button } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import Link from "next/link";
-import ContactSection from "@/components/server/contactSection";
 import AboutSection from "@/components/server/aboutSection";
 
 export default function About() {
