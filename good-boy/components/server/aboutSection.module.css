@@ -6,6 +6,7 @@
 
 .big_title {
   margin-top: 20px;
+  margin-bottom: 40px;
   font-size: 35px;
   font-weight: bold;
 }
@@ -16,8 +17,23 @@
 
 .middle_section {
   border: 2px solid blue;
+  display: flex;
+  justify-content: center;
+  gap: 20;
+  flex-direction: row;
+  margin: 40px 0;
+}
+
+.middle_section_block {
+  border: 2px solid green;
+  text-align: center;
 }
 
 .bottom_section {
   border: 2px solid green;
+}
+
+.val {
+  color: blue;
+  font-size: 30px;
 }

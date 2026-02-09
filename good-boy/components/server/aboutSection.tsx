@@ -12,7 +12,17 @@ export default function AboutSection() {
         vzdelávacích a komunitných programov.
       </div>
 
-      <div className={styles.middle_section}>stred</div>
+      <div className={styles.middle_section}>
+        <div className={styles.middle_section_block}>
+          <div className={styles.val}>56456465465464456465466</div>
+          <strong>Celková vyzbieraná hodnota</strong>{" "}
+        </div>
+        <div className={styles.middle_section_block}>
+          <div className={styles.val}>7787468486484844448484</div>
+
+          <strong>Počet darcov</strong>
+        </div>
+      </div>
       <div className={styles.bottom_section}>
         Naša práca je možná vďaka podpore vášnivých dobrovoľníkov, štedrých darcov a komunity, ktorá sa hlboko stará o
         dobro zvierat. Organizujeme aj kastračné a sterilizačné iniciatívy, aby sme riešili problém túlavých psov a
