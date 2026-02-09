@@ -12,28 +12,27 @@
 }
 
 .top_section {
-  border: 2px solid red;
 }
 
 .middle_section {
-  border: 2px solid blue;
   display: flex;
-  justify-content: center;
-  gap: 20;
+  justify-content: space-evenly;
   flex-direction: row;
   margin: 40px 0;
+  padding: 40px 0;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
 }
 
 .middle_section_block {
-  border: 2px solid green;
   text-align: center;
 }
 
 .bottom_section {
-  border: 2px solid green;
 }
 
 .val {
   color: #4f46e5;
-  font-size: 30px;
+  font-weight: bold;
+  font-size: 40px;
 }
