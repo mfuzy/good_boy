@@ -1,7 +1,7 @@
-import Image from "next/image";
-import DonorForm from "@/components/donorForm";
-import TopStepper from "@/components/topStepper";
-import Footer from "../footer";
+import DogImage from "@/components/server/DogImage";
+import DonorForm from "@/components/client/donorForm";
+import TopStepper from "@/components/client/topStepper";
+import Footer from "../../components/server/footer";
 
 export default function Step2() {
   return (
@@ -15,17 +15,7 @@ export default function Step2() {
       </main>
 
       <aside className="sidebar">
-        <Image
-          src="/Dog1.png"
-          alt="Pes"
-          width={600}
-          height={980}
-          priority
-          style={{
-            height: "100%",
-            width: "auto",
-          }}
-        />
+        <DogImage />
       </aside>
     </div>
   );

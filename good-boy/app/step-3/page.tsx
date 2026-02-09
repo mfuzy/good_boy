@@ -1,18 +1,20 @@
-import Test from "@/components/test";
-import TopStepper from "@/components/topStepper";
+import TopStepper from "@/components/client/topStepper";
+import DogImage from "@/components/server/DogImage";
+
+import Footer from "../../components/server/footer";
 
 export default function Step3() {
   return (
-    <div>
-      {/* ---------------ROW A ----------------------------------------------------------- */}
-      <div>
-        <TopStepper activeStep={3} />
-      </div>
+    <div className="wrapper">
+      <main className="content">
+        <TopStepper activeStep={1} />
 
-      {/*----------------ROW B---------------------------------------------------------------- */}
-      <div>
-        <Test />
-      </div>
+        <Footer />
+      </main>
+
+      <aside className="sidebar">
+        <DogImage />
+      </aside>
     </div>
   );
 }
