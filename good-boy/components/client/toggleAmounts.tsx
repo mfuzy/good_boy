@@ -8,6 +8,7 @@ import { ToggleButton, ToggleButtonGroup } from "@mui/material";
 export default function ToggleAmounts() {
   const selectedDonationValue = useDonationStore((state) => state.selectedDonationValue);
   const setSelectedDonationValue = useDonationStore((state) => state.setSelectedDonationValue);
+  const setDonationValue = useDonationStore((state) => state.setDonationValue);
 
   return (
     <div>
@@ -16,6 +17,7 @@ export default function ToggleAmounts() {
         value={selectedDonationValue}
         onChange={(e, newValue) => {
           if (newValue !== null) setSelectedDonationValue(newValue);
+          setDonationValue(newValue);
         }}
         size="small"
         sx={{

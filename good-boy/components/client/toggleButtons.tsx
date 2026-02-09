@@ -9,6 +9,7 @@ import React from "react";
 export default function ToggleButtons() {
   const option = useDonationStore((state) => state.donationOption);
   const setOption = useDonationStore((state) => state.setDonationOption);
+  const setSelectedDogShelterId = useDonationStore((state) => state.setSelectedDogShelterId);
   return (
     <div>
       <ToggleButtonGroup
@@ -16,6 +17,9 @@ export default function ToggleButtons() {
         value={option}
         onChange={(e, newValue) => {
           if (newValue !== null) setOption(newValue);
+          if (newValue === DonationType.Foundation) {
+            setSelectedDogShelterId(null);
+          }
         }}
         size="small"
       >

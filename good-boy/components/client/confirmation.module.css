@@ -2,7 +2,12 @@
 }
 
 .big_title {
-  margin-top: 20px;
+  margin-bottom: 20px;
   font-size: 38px;
+  font-weight: bold;
+}
+
+.summary .left_column {
+  text-align: right;
   font-weight: bold;
 }
