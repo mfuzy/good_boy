@@ -1,0 +1,23 @@
+.about_container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.big_title {
+  margin-top: 20px;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.top_section {
+  border: 2px solid red;
+}
+
+.middle_section {
+  border: 2px solid blue;
+}
+
+.bottom_section {
+  border: 2px solid green;
+}

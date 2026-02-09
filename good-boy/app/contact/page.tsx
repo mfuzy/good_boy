@@ -24,7 +24,7 @@ export default function Contact() {
 
       <div style={{ flexGrow: 1 }}></div>
 
-      <Footer showSocials={true} />
+      <Footer showSocials={false} />
     </div>
   );
 }
