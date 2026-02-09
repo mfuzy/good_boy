@@ -56,10 +56,14 @@ export default function Confirmation() {
               ? "Finančný príspevok pre celú nadáciu"
               : "Finančný príspevok pre útulok"}
           </Grid>
-          <Grid size={6}>Útulok</Grid>
-          <Grid className={styles.left_column} size={6}>
-            {getShelterName()}
-          </Grid>
+
+          {option === DonationType.DogShelter && <Grid size={6}>Útulok</Grid>}
+          {option === DonationType.DogShelter && (
+            <Grid className={styles.left_column} size={6}>
+              {getShelterName()}
+            </Grid>
+          )}
+
           <Grid size={6}>Suma príspevku</Grid>
           <Grid className={styles.left_column} size={6}>
             {donationValue} €
