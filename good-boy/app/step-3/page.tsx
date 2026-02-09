@@ -1,5 +1,5 @@
 import TopStepper from "@/components/client/topStepper";
-import DogImage from "@/components/server/DogImage";
+import DogImage from "@/components/server/dogImage";
 import Footer from "../../components/server/footer";
 import Confirmation from "@/components/client/confirmation";
 

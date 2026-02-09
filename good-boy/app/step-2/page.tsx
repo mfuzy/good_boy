@@ -1,4 +1,4 @@
-import DogImage from "@/components/server/DogImage";
+import DogImage from "@/components/server/dogImage";
 import DonorForm from "@/components/client/donorForm";
 import TopStepper from "@/components/client/topStepper";
 import Footer from "../../components/server/footer";

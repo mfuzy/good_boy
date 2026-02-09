@@ -3,31 +3,25 @@ import Footer from "../../components/server/footer";
 import { Button } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import Link from "next/link";
+import ContactSection from "@/components/server/contactSection";
 
 export default function Contact() {
   return (
-    <div className="wrapper_contact">
-      <main className="">
+    <div className="wrapper_contact_page">
+      <main>
         <div>
           <Button size="small" variant="text" startIcon={<ArrowBackIcon />} sx={{ textTransform: "none" }}>
-            <Link href="/step-3">Späť</Link>
+            <Link href="/step-3"> Späť</Link>
           </Button>
         </div>
-        <p style={{ fontSize: "35px", fontWeight: "bold" }}>Kontakt</p>
+
+        <ContactSection />
       </main>
 
-      <aside className="">
-        <Image
-          src="/Dog2.png"
-          alt="Pes"
-          width={600}
-          height={980}
-          priority
-          style={{
-            height: "100%",
-            width: "auto",
-          }}
-        />
+      <div style={{ flexGrow: 1 }}></div>
+
+      <aside>
+        <Image src="/Dog2.png" alt="Pes" width={800} height={270} priority />
       </aside>
 
       <Footer showSocials={true} />
