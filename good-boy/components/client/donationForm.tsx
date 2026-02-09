@@ -9,8 +9,12 @@ import { useRouter } from "next/navigation";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import styles from "./donationForm.module.css";
+import { useDonationStore } from "@/stores/useDonationStore";
+import { DonationType } from "@/types/donationTypes";
 
 export default function DonationForm() {
+  const selectedDogShelterId = useDonationStore((state) => state.selectedDogShelterId);
+  const option = useDonationStore((state) => state.donationOption);
   const router = useRouter();
 
   return (
@@ -63,6 +67,7 @@ export default function DonationForm() {
             //redirect
             router.push("/step-2");
           }}
+          disabled={option === DonationType.DogShelter && selectedDogShelterId === null}
         >
           Pokračovať
         </Button>

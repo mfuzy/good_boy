@@ -1,6 +1,6 @@
 "use client";
 
-import { Button, Stack, Grid, Divider, Checkbox, FormControlLabel } from "@mui/material";
+import { Button, Stack, Grid, Divider, Checkbox, FormControlLabel, LinearProgress, Alert } from "@mui/material";
 import { useRouter } from "next/navigation";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
@@ -8,7 +8,9 @@ import styles from "./confirmation.module.css";
 import { useDonorFormStore } from "@/stores/useDonorFormStore";
 import { useDonationStore } from "@/stores/useDonationStore";
 import { PHONE_PREFIXES } from "@/constants/donorFormConstants";
-import { DonationType } from "@/types/donationTypes";
+import { DonationType, ContributeReqDto } from "@/types/donationTypes";
+import { useMutation } from "@tanstack/react-query";
+import { contribute } from "@/api/contribute";
 
 export default function Confirmation() {
   const router = useRouter();
@@ -25,6 +27,10 @@ export default function Confirmation() {
   const phoneNumber = useDonorFormStore((state) => state.phoneNumber);
   const isChecked = useDonorFormStore((state) => state.isChecked);
   const toggleChecked = useDonorFormStore((state) => state.toggleChecked);
+
+  const mutation = useMutation({
+    mutationFn: contribute,
+  });
 
   const getShelterName = (): string => {
     for (let i of dogShelters) {
@@ -45,6 +51,23 @@ export default function Confirmation() {
 
   const handleChangeCheck = () => {
     toggleChecked();
+  };
+
+  const handleSubmit = () => {
+    const reqData: ContributeReqDto = {
+      contributors: [
+        {
+          firstName: name,
+          lastName: surname,
+          email: email,
+          phone: phoneNumber,
+        },
+      ],
+      shelterID: selectedDogShelterId ? selectedDogShelterId : 0,
+      value: Number(donationValue),
+    };
+
+    mutation.mutate(reqData);
   };
 
   return (
@@ -104,6 +127,15 @@ export default function Confirmation() {
         />
       </div>
 
+      {mutation.isPending && <LinearProgress color="primary" />}
+
+      {mutation.isError && (
+        <Alert variant="filled" severity="error">
+          Vyskytla sa chyba: {mutation.error.message}
+        </Alert>
+      )}
+      {mutation.isSuccess && <Alert severity="success">Príspevok bol úspešne zaznamenaný.</Alert>}
+
       <div style={{ flexGrow: 1 }}></div>
 
       <Stack direction="row" justifyContent="space-between" width="100%" sx={{ marginBottom: "20px" }}>
@@ -124,7 +156,8 @@ export default function Confirmation() {
           variant="contained"
           endIcon={<ArrowForwardIcon />}
           sx={{ textTransform: "none" }}
-          onClick={() => {}}
+          onClick={handleSubmit}
+          disabled={!isChecked}
         >
           Odoslať formulár
         </Button>

@@ -1,6 +1,6 @@
 import { ContributeReqDto, ContributeRespDto } from "@/types/donationTypes";
 
-export async function postDonationData(reqData: ContributeReqDto): Promise<ContributeRespDto> {
+export async function contribute(reqData: ContributeReqDto): Promise<ContributeRespDto> {
   const res = await fetch("https://frontend-assignment-api.goodrequest.dev/api/v1/shelters/contribute", {
     method: "POST",
     headers: {
