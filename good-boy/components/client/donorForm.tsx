@@ -143,7 +143,9 @@ export default function DonorForm() {
         {errors.phoneNumber && <Alert severity="error">{errors.phoneNumber.message}</Alert>}
       </div>
 
-      <Stack direction="row" justifyContent="space-between" width="100%">
+      <div style={{ flexGrow: 1 }}></div>
+
+      <Stack direction="row" justifyContent="space-between" width="100%" sx={{ marginBottom: "20px" }}>
         <Button
           size="small"
           variant="outlined"

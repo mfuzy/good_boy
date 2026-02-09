@@ -1,6 +1,6 @@
 "use client";
 
-import { Button, Stack, Grid, Divider } from "@mui/material";
+import { Button, Stack, Grid, Divider, Checkbox, FormControlLabel } from "@mui/material";
 import { useRouter } from "next/navigation";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
@@ -17,13 +17,14 @@ export default function Confirmation() {
   const dogShelters = useDonationStore((state) => state.dogShelters);
   const option = useDonationStore((state) => state.donationOption);
   const donationValue = useDonationStore((state) => state.donationValue);
-  const selectedDonationValue = useDonationStore((state) => state.selectedDonationValue);
 
   const selectedPhonePrefixId = useDonorFormStore((state) => state.selectedPhonePrefixId);
   const name = useDonorFormStore((state) => state.name);
   const surname = useDonorFormStore((state) => state.surname);
   const email = useDonorFormStore((state) => state.email);
   const phoneNumber = useDonorFormStore((state) => state.phoneNumber);
+  const isChecked = useDonorFormStore((state) => state.isChecked);
+  const toggleChecked = useDonorFormStore((state) => state.toggleChecked);
 
   const getShelterName = (): string => {
     for (let i of dogShelters) {
@@ -92,7 +93,16 @@ export default function Confirmation() {
         </Grid>
       </div>
 
-      <Stack direction="row" justifyContent="space-between" width="100%">
+      <div>
+        <FormControlLabel
+          control={<Checkbox defaultChecked />}
+          label="Súhlasím so spracovaním mojich osobných údajov"
+        />
+      </div>
+
+      <div style={{ flexGrow: 1 }}></div>
+
+      <Stack direction="row" justifyContent="space-between" width="100%" sx={{ marginBottom: "20px" }}>
         <Button
           size="small"
           variant="outlined"
