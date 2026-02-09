@@ -18,11 +18,11 @@ export default function Contact() {
         <ContactSection />
       </main>
 
-      <div style={{ flexGrow: 1 }}></div>
-
       <aside>
         <Image src="/Dog2.png" alt="Pes" width={800} height={270} priority />
       </aside>
+
+      <div style={{ flexGrow: 1 }}></div>
 
       <Footer showSocials={true} />
     </div>
