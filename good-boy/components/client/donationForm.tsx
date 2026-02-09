@@ -37,7 +37,7 @@ export default function DonationForm() {
           <DonationInput />
         </div>
 
-        <div style={{ marginTop: "40px" }}>
+        <div style={{ marginTop: "30px" }}>
           <ToggleAmounts />
         </div>
       </div>
