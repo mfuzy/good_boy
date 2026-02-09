@@ -1,7 +1,11 @@
 import Image from "next/image";
 import styles from "./footer.module.css";
 
-export default function Footer() {
+interface IProps {
+  showSocials: boolean;
+}
+
+export default function Footer({ showSocials }: IProps) {
   return (
     <div className={styles.footer_container}>
       <div className={styles.footerLeft}>
@@ -10,7 +14,7 @@ export default function Footer() {
       </div>
 
       <div className={styles.footerRight}>
-        <Image src="/Socials.png" alt="Socials" width={60} height={10} />
+        {showSocials && <Image src="/Socials.png" alt="Socials" width={60} height={10} />}
         <a href="/contact">Kontakt</a>
         <a href="/about">O projekte</a>
       </div>

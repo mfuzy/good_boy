@@ -26,7 +26,9 @@ export default function DonationForm() {
       </div>
 
       <div className={styles.shelters}>
-        <p style={{ fontWeight: "bold" }}>O projekte</p>
+        <p style={{ fontWeight: "bold" }}>
+          <a href="/about"> O projekte</a>
+        </p>
 
         <p style={{ marginTop: "5px" }}>
           <strong>Útulok</strong> <span>(Nepovinné)</span>

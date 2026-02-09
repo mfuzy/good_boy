@@ -1,6 +1,5 @@
 import TopStepper from "@/components/client/topStepper";
 import DogImage from "@/components/server/DogImage";
-
 import Footer from "../../components/server/footer";
 import Confirmation from "@/components/client/confirmation";
 
@@ -12,7 +11,7 @@ export default function Step3() {
 
         <Confirmation />
 
-        <Footer />
+        <Footer showSocials={false} />
       </main>
 
       <aside className="sidebar">

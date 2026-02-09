@@ -11,7 +11,7 @@ export default function Step2() {
 
         <DonorForm />
 
-        <Footer />
+        <Footer showSocials={false} />
       </main>
 
       <aside className="sidebar">

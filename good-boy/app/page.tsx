@@ -1,4 +1,3 @@
-import Image from "next/image";
 import TopStepper from "@/components/client/topStepper";
 import DonationForm from "@/components/client/donationForm";
 import Footer from "../components/server/footer";
@@ -12,7 +11,7 @@ export default function Home() {
 
         <DonationForm />
 
-        <Footer />
+        <Footer showSocials={true} />
       </main>
 
       <aside className="sidebar">
