@@ -43,6 +43,10 @@ export default function Confirmation() {
     return "";
   };
 
+  const handleChangeCheck = () => {
+    toggleChecked();
+  };
+
   return (
     <div className={styles.confirmation_container}>
       <div className={styles.big_title}>Skontrolujte si zadané údaje</div>
@@ -95,7 +99,7 @@ export default function Confirmation() {
 
       <div>
         <FormControlLabel
-          control={<Checkbox defaultChecked />}
+          control={<Checkbox checked={isChecked} onChange={handleChangeCheck} />}
           label="Súhlasím so spracovaním mojich osobných údajov"
         />
       </div>
