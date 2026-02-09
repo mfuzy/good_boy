@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <div className={styles.footer}>
       <div className={styles.footerLeft}>
-        <Image src="/Mascot.png" alt="Mascot" width={40} height={40} />
+        <Image src="/Mascot.png" alt="Mascot" width={30} height={80} />
         <Image src="/GB.png" alt="Good Boy" width={80} height={10} />
       </div>
 

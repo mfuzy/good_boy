@@ -1,5 +1,5 @@
 .footer {
-  padding: 20px;
+  padding: 20px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -9,7 +9,14 @@
 .footerRight {
   display: flex;
   align-items: center;
-  gap: 16px;
+}
+
+.footerLeft {
+  gap: 10px;
+}
+
+.footerRight {
+  gap: 20px;
 }
 
 .footerRight a {

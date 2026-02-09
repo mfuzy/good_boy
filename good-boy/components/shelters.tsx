@@ -30,7 +30,12 @@ export default function Shelters() {
   return (
     <FormControl variant="filled" fullWidth>
       <InputLabel id="select-filled-label">Vyberte útulok zo zoznamu</InputLabel>
-      <Select labelId="select-filled-label" value={selectedDogShelterId ?? ""} onChange={handleChange}>
+      <Select
+        labelId="select-filled-label"
+        label="Vyberte útulok zo zoznamu"
+        value={selectedDogShelterId ?? ""}
+        onChange={handleChange}
+      >
         <MenuItem value="" disabled>
           Vyberte útulok zo zoznamu
         </MenuItem>
