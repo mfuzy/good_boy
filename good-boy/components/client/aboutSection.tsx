@@ -1,6 +1,20 @@
+"use client";
+
+import { getResults } from "@/api/getResults";
 import styles from "./aboutSection.module.css";
+import { useQuery } from "@tanstack/react-query";
 
 export default function AboutSection() {
+  const { data, isLoading, error } = useQuery({
+    queryKey: ["results"],
+    queryFn: getResults,
+  });
+
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Error loading results</div>;
+
+  const results = data ? data : null;
+
   return (
     <div className={styles.about_container}>
       <p className={styles.big_title}>O projekte</p>
@@ -14,11 +28,11 @@ export default function AboutSection() {
 
       <div className={styles.middle_section}>
         <div className={styles.middle_section_block}>
-          <div className={styles.val}>56456465465464456465466 €</div>
+          <div className={styles.val}>{results?.contribution} €</div>
           <strong>Celková vyzbieraná hodnota</strong>
         </div>
         <div className={styles.middle_section_block}>
-          <div className={styles.val}>7787468486484844448484 </div>
+          <div className={styles.val}>{results?.contributors} </div>
 
           <strong>Počet darcov</strong>
         </div>

@@ -2,7 +2,7 @@ import Footer from "../../components/server/footer";
 import { Button } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import Link from "next/link";
-import AboutSection from "@/components/server/aboutSection";
+import AboutSection from "@/components/client/aboutSection";
 
 export default function About() {
   return (
