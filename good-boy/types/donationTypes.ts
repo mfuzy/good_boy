@@ -29,3 +29,12 @@ export type Contributor = {
   email: string;
   phone: string;
 };
+
+export type ContributeRespDto = {
+  messages: Message[];
+};
+
+export type Message = {
+  message: string;
+  type: string;
+};
